@@ -8,7 +8,7 @@
         p,h1,h2,h3,h4 {
             margin: 2%;
         }
-        p,address {
+        p,address,form {
             margin: 3%;
             font-size: 120%;
         }
@@ -37,6 +37,15 @@
             <a href="mailto:basketballfans@fakeemail.com">basketballfans@fakeemail.com</a><br>
         </address></p>
         <hr>
+        <h2>Feedback</h2>
+        <form>
+            Name:    <input type="text" name="name" required><br>
+            E-Mail: <input type="email" name="email" required><br>
+            <br>
+            Feedback:<br>
+            <textarea name="feedback" style="width:400px;height:250px;"></textarea><br><br>
+            <input type="submit" name="submit" value="Submit Survey">
+        </form>
     </div>
 </body>
 </html>
