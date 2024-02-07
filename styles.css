@@ -1,0 +1,154 @@
+table{
+    text-align: center;
+    border: 1px solid black;
+}
+
+th, td, tr{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th{
+    background-color: gray;
+    
+}
+
+h2{
+    text-align: center;
+}
+
+.imgPlayer{
+    margin: 1rem;
+    text-align: center;
+    display: inline-block;
+    
+}
+
+.Awards{
+    display: inline-block;
+    vertical-align: middle;
+    vertical-align: top;
+
+}
+
+.aboutPlayer{
+    display: inline-block;
+    vertical-align: middle;
+    vertical-align: top;
+
+}
+
+.aboutPlayer table th{
+    text-align: center;
+    text-align: right;
+}
+
+.aboutPlayer table td{
+    text-align: left;
+}
+
+.seasonStats{
+    width: fit-content;
+    display: inline-block;
+    
+}
+
+
+ul {
+    list-style-type: circle;
+}
+
+a{
+    color: black;
+}
+a:hover{
+    color: gray;
+}
+
+.container{
+    font-size: x-large;
+    text-align: left;
+    margin-left: 45%;
+}
+
+.NbaPhotos img{
+    width: 250px;
+}
+.NbaPhotos table, td, tr{
+    border: 0px;
+}
+
+.NbaPhotos{
+    
+}
+
+.recentGames{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+
+  .NewsCard{
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 3%;
+    width: 300px;
+    min-height: 400px;
+    background-color: wheat;
+    font-size: 25px;
+  }
+
+  .NewsCard, a{
+    text-align: center;
+    margin-right: 10px;
+    margin-left: 40px;
+
+  }
+
+  .NewsRow{
+    align-content: center;
+
+  }
+
+  .imgSquare{
+    display: inline-block;
+    border-radius: 3%;
+    width: 300px;
+    min-height: 200px;
+    vertical-align: top;
+    text-align: center;
+
+  }
+
+  .recentGames table{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.seasonStats h2{
+    margin: auto;
+    align-self: center;
+    
+}
+
+.RecentGames table{
+    margin: auto;
+}
+
+.RecentGames{
+
+    display: inline-block;
+    width: fit-content;
+    padding-left: 5%;
+    
+}
+
+.RecentGames h2{
+    margin: auto;
+    align-self: center;
+    
+}
+
+.RecentGames table{
+    margin: auto;
+}
