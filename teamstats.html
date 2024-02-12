@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="font-family: Arial, Helvetica, sans-serif; background-color: lightgray;">
+<html style="font-family: Arial, Helvetica, sans-serif;">
 <head>
     <meta charset="UTF-8" />
     <title>Team Stats</title>
@@ -14,68 +14,110 @@
         }
 
         table,th,td {
-            font-size: 120%;
-            border: 1px solid black;
-            border-collapse: collapse;
+            font-size: 18px;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        
+
+        tr:hover td {
+            background-color: rgb(236, 196, 85);
         }
 
         th,td {
-            padding: 5px;
+            padding: 3px 4px;
+            border: 0px;
+            border-right: 1px gray solid;
+            border-bottom: 1px gray solid;
         }
+
+        td:nth-child(1n+5) {
+            text-align: right;
+        }
+
+        th {
+            text-wrap: nowrap;
+            padding: 2px 10px;
+            color: maroon;
+        }
+     
+        td:first-child,th:first-child {
+            border-left:  1px gray solid;
+        }
+
+        thead {
+            background-color: lightgray;
+        }
+
+        th:first-child {
+            border-top-left-radius: 10px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 10px;
+        }
+
     </style>
 
 </head>
 <body>
     <br><hr>
     <h1>Statistics for all NBA Teams</h1>
+    <br>
+    <h2 style="margin-bottom: 0;">Currently Active Teams</h2>
     <div>
-        <table cellspacing="10">
-            <tr>
-                <th>Team</th>
-                <th>League</th>
-                <th>Created</th>
-                <th>End</th>
-                <th>Total Years</th>
-                <th>Games</th>
-                <th>Wins</th>
-                <th>Losses</th>
-                <th>%</th>
-                <th>Playoffs</th>
-                <th>Division</th>
-                <th>Conference</th>
-                <th>Champion</th>
-                
-            </tr>
-            <tr>
-                <td>Los Angeles Lakers</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Golden State Warriors</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+        <table cellspacing="10" style="margin-top: 0.5%;">
+            <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>League</th>
+                    <th>Began</th>
+                    <th>To</th>
+                    <th>Years</th>
+                    <th>G</th>
+                    <th>W</th>
+                    <th>L</th>
+                    <th>%</th>
+                    <th>Playoffs</th>
+                    <th>Division</th>
+                    <th>Conference</th>
+                    <th>Champion</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Los Angeles Lakers</td>
+                    <td>NBA</td>
+                    <td>1948-49</td>
+                    <td>2023-24</td>
+                    <td>76</td>
+                    <td>5976</td>
+                    <td>3531</td>
+                    <td>2445</td>
+                    <td>.591</td>
+                    <td>63</td>
+                    <td>33</td>
+                    <td>19</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>Golden State Warriors</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </body>
