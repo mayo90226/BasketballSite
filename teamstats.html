@@ -6,68 +6,124 @@
 
     <style>
         p,h1,h2,h3,h4,table {
-            margin: 2%;
+            margin-left: 2%;
         }
         p {
-            margin: 3%;
+            margin-left: 3%;
             font-size: 120%;
         }
 
-        table,th,td {
+        table.teams th,td {
             font-size: 18px;
             border-collapse: separate;
             border-spacing: 0;
         }
 
+        table.teams {
+            font-size: 18px;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
         
 
-        tr:hover td {
+        table.teams tr:hover td {
             background-color: rgb(236, 196, 85);
         }
 
-        th,td {
+        table.teams th,td {
             padding: 3px 4px;
             border: 0px;
             border-right: 1px gray solid;
             border-bottom: 1px gray solid;
         }
 
-        td:nth-child(1n+5) {
+        table.teams td:nth-child(1n+5) {
             text-align: right;
         }
 
-        th {
+        table.teams th {
             text-wrap: nowrap;
             padding: 2px 10px;
             color: maroon;
         }
      
-        td:first-child,th:first-child {
+        table.teams td:first-child,th:first-child {
             border-left:  1px gray solid;
         }
 
-        thead {
+        table.teams thead {
             background-color: lightgray;
         }
 
-        th:first-child {
+        table.teams th:first-child {
             border-top-left-radius: 10px;
         }
 
-        th:last-child {
+        table.teams th:last-child {
             border-top-right-radius: 10px;
+        }
+
+        table.nav {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 130%;
+        border-collapse: separate;
+        border: 0px;
+        border-spacing: 0;
+        padding: 0;
+        width: 100%;
+        }
+
+        table.nav th {
+            background-color: lightgray;
+        }
+
+        table.nav th {
+        padding: 5px 15px 5px 15px;
+        text-wrap: nowrap;
+        width: auto;
+        border: 0px;
+        border-right: 1px gray solid;
+        border-bottom: 2px goldenrod solid;
+        }
+
+        table.nav th:hover {
+            background-color: goldenrod;
+        }
+
+        table.nav a {
+            color: black;
+            text-decoration: none;
+        }
+
+
+        header {
+            margin-bottom: 0px;
         }
 
     </style>
 
 </head>
+<header>
+    <table class="nav">
+        <tr>
+            <th><a href="playerStats.html">Players</a></th>
+            <th><a href="playerStats.html">Games</a></th>
+            <th><a href="teamstats.html">Teams</a></th>
+            <th><a href="NBA Standings.html">Standings</a></th>
+            <th><a href="Highlights.html">Highlights</a></th>
+            <th><a href="News.html">News</a></th>
+            <th><a href="aboutus.html">About us</a></th>
+        </tr>
+    </table>
+</header>
 <body>
-    <br><hr>
+    <br>
     <h1>Statistics for all NBA Teams</h1>
     <br>
     <h2 style="margin-bottom: 0;">Currently Active Teams</h2>
     <div>
-        <table cellspacing="10" style="margin-top: 0.5%;">
+        <table class="teams" cellspacing="10" style="margin-top: 0.5%;">
             <thead>
                 <tr>
                     <th>Team</th>
