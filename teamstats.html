@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Team Stats</title>
+    <link rel="stylesheet" href="styles.css">
 
     <style>
         p,h1,h2,h3,h4,table {
@@ -13,7 +14,19 @@
             font-size: 120%;
         }
 
-        table.teams th,td {
+        table.teams th {
+            font-size: 18px;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        table.teams td {
+            font-size: 18px;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        table.teams tr {
             font-size: 18px;
             border-collapse: separate;
             border-spacing: 0;
@@ -23,6 +36,7 @@
             font-size: 18px;
             border-collapse: separate;
             border-spacing: 0;
+            border: 0;
         }
         
 
@@ -63,38 +77,6 @@
             border-top-right-radius: 10px;
         }
 
-        table.nav {
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 130%;
-        border-collapse: separate;
-        border: 0px;
-        border-spacing: 0;
-        padding: 0;
-        width: 100%;
-        }
-
-        table.nav th {
-            background-color: lightgray;
-        }
-
-        table.nav th {
-        padding: 5px 15px 5px 15px;
-        text-wrap: nowrap;
-        width: auto;
-        border: 0px;
-        border-right: 1px gray solid;
-        border-bottom: 2px goldenrod solid;
-        }
-
-        table.nav th:hover {
-            background-color: goldenrod;
-        }
-
-        table.nav a {
-            color: black;
-            text-decoration: none;
-        }
 
 
         header {
@@ -107,6 +89,7 @@
 <header>
     <table class="nav">
         <tr>
+            <th><a href="index.html">Home</a></th>
             <th><a href="playerStats.html">Players</a></th>
             <th><a href="playerStats.html">Games</a></th>
             <th><a href="teamstats.html">Teams</a></th>
