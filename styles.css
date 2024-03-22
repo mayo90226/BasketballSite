@@ -2,6 +2,29 @@ header,head,body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+
+}
+
+
 table{
     text-align: center;
     border: 1px solid black;
@@ -65,6 +88,7 @@ ul {
 a{
     color: black;
 }
+
 a:hover{
     color: gray;
 }
@@ -102,7 +126,7 @@ a:hover{
     font-size: 25px;
   }
 
-  .NewsCard, a{
+  .NewsCard a{
     text-align: center;
     margin-right: 10px;
     margin-left: 40px;
@@ -159,15 +183,26 @@ a:hover{
 
 /* Navigation Bar styling */
 
+
+    div.scroll {
+        overflow: scroll;
+        white-space: nowrap;   
+    }
+
+    div.scroll::-webkit-scrollbar {
+        display: none;   
+    }
+
     table.nav {
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 130%;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 2vw;
     border-collapse: separate;
     border: 0px;
     border-spacing: 0;
-    padding: 0;
     width: 100%;
+    padding: 0;
+    height: auto;
     }
 
     table.nav th {
@@ -175,10 +210,9 @@ a:hover{
     }
 
     table.nav th {
-    text-align: left;
-    padding: 5px 15px 5px 15px;
+    text-align: center;
+    padding: 0.5vw 0;
     text-wrap: nowrap;
-    width: auto;
     border: 0px;
     border-right: 1px gray solid;
     border-bottom: 2px goldenrod solid;

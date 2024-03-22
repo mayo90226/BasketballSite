@@ -11,29 +11,26 @@
         }
         p {
             margin-left: 3%;
-            font-size: 120%;
+            font-size: 1.3vw;
         }
 
         table.teams th {
-            font-size: 18px;
             border-collapse: separate;
             border-spacing: 0;
         }
 
         table.teams td {
-            font-size: 18px;
             border-collapse: separate;
             border-spacing: 0;
         }
 
         table.teams tr {
-            font-size: 18px;
             border-collapse: separate;
             border-spacing: 0;
         }
 
         table.teams {
-            font-size: 18px;
+            font-size: 120%;
             border-collapse: separate;
             border-spacing: 0;
             border: 0;
@@ -45,10 +42,11 @@
         }
 
         table.teams th,td {
-            padding: 3px 4px;
+            padding: .3vw .4vw;
             border: 0px;
             border-right: 1px gray solid;
             border-bottom: 1px gray solid;
+            text-wrap: nowrap;
         }
 
         table.teams td:nth-child(1n+5) {
@@ -57,7 +55,7 @@
 
         table.teams th {
             text-wrap: nowrap;
-            padding: 2px 10px;
+            padding: .3vw 1vw;
             color: maroon;
         }
      
@@ -87,26 +85,28 @@
 
 </head>
 <header>
-    <table class="nav">
-        <tr>
-            <th><a href="index.html">Home</a></th>
-            <th><a href="playerStats.html">Players</a></th>
-            <th><a href="playerStats.html">Games</a></th>
-            <th><a href="teamstats.html">Teams</a></th>
-            <th><a href="NBA Standings.html">Standings</a></th>
-            <th><a href="Highlights.html">Highlights</a></th>
-            <th><a href="News.html">News</a></th>
-            <th><a href="aboutus.html">About us</a></th>
-        </tr>
-    </table>
+    <div class="scroll">
+        <table class="nav">
+            <tr>
+                <th><a href="index.html">Home</a></th>
+                <th><a href="playerStats.html">Players</a></th>
+                <th><a href="playerStats.html">Games</a></th>
+                <th><a href="teamstats.html">Teams</a></th>
+                <th><a href="NBA Standings.html">Standings</a></th>
+                <th><a href="Highlights.html">Highlights</a></th>
+                <th><a href="News.html">News</a></th>
+                <th><a href="aboutus.html">About us</a></th>
+            </tr>
+        </table>
+    </div>
 </header>
 <body>
     <br>
     <h1>Statistics for all NBA Teams</h1>
     <br>
     <h2 style="margin-bottom: 0;">Currently Active Teams</h2>
-    <div>
-        <table class="teams" cellspacing="10" style="margin-top: 0.5%;">
+    <div class="scroll">
+        <table class="teams" cellspacing="0" style="margin-top: 0.5%;">
             <thead>
                 <tr>
                     <th>Team</th>
