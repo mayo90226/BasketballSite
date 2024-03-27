@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Team Stats</title>
     <link rel="stylesheet" href="styles.css">
-
+    <script src="teamstatsScripts.js"></script>
     <style>
         p,h1,h2,h3,h4,table {
             margin-left: 2%;
@@ -57,9 +57,15 @@
             text-wrap: nowrap;
             padding: .3vw 1vw;
             color: maroon;
+            background-color: lightgray;
+            border-top: 1px gray solid;
         }
      
-        table.teams td:first-child,th:first-child {
+        table.teams td:first-child {
+            border-left:  1px gray solid;
+        }
+
+        table.teams th:first-child {
             border-left:  1px gray solid;
         }
 
@@ -75,10 +81,40 @@
             border-top-right-radius: 10px;
         }
 
-
-
         header {
             margin-bottom: 0px;
+        }
+
+        .teams .sortcol {
+            background: rgb(255, 207, 118);
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            color: black;
+            text-align: center;
+            border-radius: 5px;
+            padding: 0.5vw 0;
+            position: absolute;
+            z-index: 1;
+            border: 1.5px black solid;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -60px;
+            background-color: white;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
 
     </style>
@@ -106,22 +142,37 @@
     <br>
     <h2 style="margin-bottom: 0;">Currently Active Teams</h2>
     <div class="scroll">
-        <table class="teams" cellspacing="0" style="margin-top: 0.5%;">
+        <table class="teams" id="teams" cellspacing="0" style="margin-top: 0.5%;">
+            <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
             <thead>
                 <tr>
-                    <th>Team</th>
-                    <th>League</th>
-                    <th>Began</th>
-                    <th>To</th>
-                    <th>Years</th>
-                    <th>G</th>
-                    <th>W</th>
-                    <th>L</th>
-                    <th>%</th>
-                    <th>Playoffs</th>
-                    <th>Division</th>
-                    <th>Conference</th>
-                    <th>Champion</th>
+                    <th onclick="sortTable(0)">Team</th>
+                    <th onclick="sortTable(1)">League</th>
+                    <th onclick="sortTable(2)"><div class="tooltip">Began<span class="tooltiptext">First year</span></div></th>
+                    <th onclick="sortTable(3)">To</th>
+                    <th onclick="sortTable(4)">Years</th>
+                    <th onclick="sortTable(5)">G</th>
+                    <th onclick="sortTable(6)">W</th>
+                    <th onclick="sortTable(7)">L</th>
+                    <th onclick="sortTable(8)">%</th>
+                    <th onclick="sortTable(9)">Plyoff</th>
+                    <th onclick="sortTable(10)">Div</th>
+                    <th onclick="sortTable(11)">Conf</th>
+                    <th onclick="sortTable(12)">Champ</th>
                     
                 </tr>
             </thead>
@@ -143,18 +194,63 @@
                 </tr>
                 <tr>
                     <td>Golden State Warriors</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>NBA</td>
+                    <td>1946-47</td>
+                    <td>2023-24</td>
+                    <td>78</td>
+                    <td>6092</td>
+                    <td>2920</td>
+                    <td>2960</td>
+                    <td>.486</td>
+                    <td>37</td>
+                    <td>12</td>
+                    <td>7</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Boston Celtics</td>
+                    <td>NBA</td>
+                    <td>1946-47</td>
+                    <td>2023-24</td>
+                    <td>78</td>
+                    <td>6104</td>
+                    <td>3627</td>
+                    <td>2477</td>
+                    <td>.594</td>
+                    <td>60</td>
+                    <td>33</td>
+                    <td>10</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>TEST</td>
+                    <td>NBA</td>
+                    <td>1948-50</td>
+                    <td>2023-25</td>
+                    <td>75</td>
+                    <td>5980</td>
+                    <td>3520</td>
+                    <td onload="">2450</td>
+                    <td>.580</td>
+                    <td>65</td>
+                    <td>32</td>
+                    <td>21</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td>Miami Heat</td>
+                    <td>NBA</td>
+                    <td>1988-89</td>
+                    <td>2023-24</td>
+                    <td>36</td>
+                    <td>2875</td>
+                    <td>1514</td>
+                    <td>1361</td>
+                    <td>.527</td>
+                    <td>65</td>
+                    <td>32</td>
+                    <td>21</td>
+                    <td>16</td>
                 </tr>
             </tbody>
         </table>
