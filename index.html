@@ -25,7 +25,8 @@
     
     <h1 style="text-align: center;">BasketBall Stats Page</h1>
     <div class="container">
-
+        <label for="playerIdInput">Generate Data</label>
+        <button onclick="generateTeams();">Generate</button>
     </div>
 
     <h1 style="text-align: center;">Recent Photos</h1>
@@ -40,6 +41,30 @@
 
 
     </div>
-    
+    <script src="playerGenerator.js"></script>
+    <script src="teamGenerator.js"></script>
+    <script>
+
+        // Check if players already exist in local storage on page load
+        window.onload = function () {
+            if (Object.keys(localStorage).filter(key => key.startsWith('player_')).length === 0) {
+                regeneratePlayers(); // If players don't exist, regenerate them
+            }
+            
+            var teamsString = localStorage.getItem('teams');
+            if (localStorage.getItem('teams')) {
+            teams = JSON.parse(teamsString);
+            }
+
+            if (teams !== null) {
+                teams.forEach((team, index) => {
+                    console.log(team);
+                    currentTeam = JSON.parse(localStorage.getItem("team_"+(index+1)));
+                    team = currentTeam;
+                });
+            }
+
+        };
+    </script>
 </body>
 </html>

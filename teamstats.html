@@ -140,9 +140,38 @@
     <br>
     <h1>Statistics for all NBA Teams</h1>
     <br>
+    <div>
+        <label for="teamSelect">Select Team:</label>
+        <select id="teamSelect" onchange="displaySelectedTeam();console.log(this.value);">
+            <option value="def">Select a team</option>
+        </select>
+    </div>
     <h2 style="margin-bottom: 0;">Currently Active Teams</h2>
-    <div class="scroll">
-        <table class="teams" id="teams" cellspacing="0" style="margin-top: 0.5%;">
+    <div class="scroll" id="teamsContainer">
+    </div>
+
+    <script src="playerGenerator.js"></script>
+    <script src="teamGenerator.js"></script>
+    <script>
+
+        // Array of team names corresponding to the team data
+
+        // Array to store team data
+        // Function to display team stats on the HTML page
+        function displayTeams(selectedTeamId) {
+            console.log(selectedTeamId);
+            const teamsContainer = document.getElementById('teamsContainer');
+            teamsContainer.innerHTML = ''; // Clear existing content
+
+            const selectedTeam = teams.find(team => team.id === selectedTeamId);
+            if (!selectedTeam) return;
+
+            const teamDiv = document.createElement('div');
+            teamDiv.classList.add('team');
+            teamDiv.innerHTML = `
+                <h2>${selectedTeam.name}</h2>
+                <div class="players">
+                    <table class="teams" id="teamsTable" cellspacing="0" style="margin-top: 0.5%;">
             <colgroup>
                 <col>
                 <col>
@@ -162,7 +191,7 @@
                 <tr>
                     <th onclick="sortTable(0)">Team</th>
                     <th onclick="sortTable(1)">League</th>
-                    <th onclick="sortTable(2)"><div class="tooltip">Began<span class="tooltiptext">First year</span></div></th>
+                    <th onclick="sortTable(2)"><div class="tooltip">Began</div></th>
                     <th onclick="sortTable(3)">To</th>
                     <th onclick="sortTable(4)">Years</th>
                     <th onclick="sortTable(5)">G</th>
@@ -178,82 +207,172 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Los Angeles Lakers</td>
-                    <td>NBA</td>
-                    <td>1948-49</td>
-                    <td>2023-24</td>
-                    <td>76</td>
-                    <td>5976</td>
-                    <td>3531</td>
-                    <td>2445</td>
-                    <td>.591</td>
-                    <td>63</td>
-                    <td>33</td>
-                    <td>19</td>
-                    <td>17</td>
-                </tr>
-                <tr>
-                    <td>Golden State Warriors</td>
-                    <td>NBA</td>
-                    <td>1946-47</td>
-                    <td>2023-24</td>
-                    <td>78</td>
-                    <td>6092</td>
-                    <td>2920</td>
-                    <td>2960</td>
-                    <td>.486</td>
-                    <td>37</td>
-                    <td>12</td>
-                    <td>7</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>Boston Celtics</td>
-                    <td>NBA</td>
-                    <td>1946-47</td>
-                    <td>2023-24</td>
-                    <td>78</td>
-                    <td>6104</td>
-                    <td>3627</td>
-                    <td>2477</td>
-                    <td>.594</td>
-                    <td>60</td>
-                    <td>33</td>
-                    <td>10</td>
-                    <td>17</td>
-                </tr>
-                <tr>
-                    <td>TEST</td>
-                    <td>NBA</td>
-                    <td>1948-50</td>
-                    <td>2023-25</td>
-                    <td>75</td>
-                    <td>5980</td>
-                    <td>3520</td>
-                    <td onload="">2450</td>
-                    <td>.580</td>
-                    <td>65</td>
-                    <td>32</td>
-                    <td>21</td>
-                    <td>16</td>
-                </tr>
-                <tr>
-                    <td>Miami Heat</td>
-                    <td>NBA</td>
-                    <td>1988-89</td>
-                    <td>2023-24</td>
-                    <td>36</td>
-                    <td>2875</td>
-                    <td>1514</td>
-                    <td>1361</td>
-                    <td>.527</td>
-                    <td>65</td>
-                    <td>32</td>
-                    <td>21</td>
-                    <td>16</td>
+                    <td>${selectedTeam.name}</td>
+                    <td>${selectedTeam.league}</td>
+                    <td>${selectedTeam.beganYear}</td>
+                    <td>${selectedTeam.untilYear}</td>
+                    <td>${selectedTeam.untilYear-selectedTeam.beganYear}</td>
+                    <td>${selectedTeam.wins+selectedTeam.lost}</td>
+                    <td>${selectedTeam.wins}</td>
+                    <td>${selectedTeam.lost}</td>
+                    <td>${(selectedTeam.wins/(selectedTeam.wins+selectedTeam.lost)).toFixed(3)}</td>
+                    <td>${selectedTeam.playoffs}</td>
+                    <td>${selectedTeam.divisionals}</td>
+                    <td>${selectedTeam.conferences}</td>
+                    <td>${selectedTeam.championships}</td>
                 </tr>
             </tbody>
-        </table>
-    </div>
+                </div>
+            `;
+            const teamTable = document.getElementById("teamsTable")
+            teams.forEach((team, index) => {
+                const startIndex = index * 12; // Calculate the starting index for players of this team
+                    });
+            teamsContainer.appendChild(teamDiv);
+        }
+
+        // Function to navigate to player lookup page with player ID
+        function viewPlayer(playerId) {
+            window.location.href = 'player_lookup.html?playerId=' + playerId;
+        }
+
+        // Check if players already exist in local storage on page load
+        window.onload = function () {
+            if (Object.keys(localStorage).filter(key => key.startsWith('player_')).length === 0) {
+                regeneratePlayers(); // If players don't exist, regenerate them
+            }
+            // Populate the dropdown menu with team names
+            const teamSelect = document.getElementById('teamSelect');
+            teamNames.forEach((name, index) => {
+                const option = document.createElement('option');
+                option.value = (index+1);
+                option.textContent = name;
+                teamSelect.appendChild(option);
+            });
+
+            var teamsString = localStorage.getItem('teams');
+            if (localStorage.getItem('teams')) {
+            teams = JSON.parse(teamsString);
+            }
+
+            if (teams !== null) {
+                teams.forEach((team, index) => {
+                    console.log(team);
+                    currentTeam = JSON.parse(localStorage.getItem("team_"+(index+1)));
+                    team = currentTeam;
+                });
+            }
+
+            displayAllTeams();
+        };
+
+        // Function to display the selected team
+        function displaySelectedTeam() {
+            const teamSelect = document.getElementById('teamSelect');
+            const selectedTeamId = parseInt(teamSelect.value);
+            if (!selectedTeamId || isNaN(selectedTeamId)) return;
+            displayTeams('team_'+(selectedTeamId));
+        }
+
+        function displayAllTeams() {
+        const teamsContainer = document.getElementById('teamsContainer');
+        teamsContainer.innerHTML = ''; // Clear existing content
+
+        const teamDiv = document.createElement('div');
+        teamDiv.classList.add('team');
+        teamDiv.innerHTML = `
+            <h2>Teams</h2>
+            <div class="players">
+                <table class="teams" id="teamsTable" cellspacing="0" style="margin-top: 0.5%;">
+        <colgroup>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Team</th>
+                <th onclick="sortTable(1)">League</th>
+                <th onclick="sortTable(2)"><div class="tooltip">Began</div></th>
+                <th onclick="sortTable(3)">To</th>
+                <th onclick="sortTable(4)">Years</th>
+                <th onclick="sortTable(5)">G</th>
+                <th onclick="sortTable(6)">W</th>
+                <th onclick="sortTable(7)">L</th>
+                <th onclick="sortTable(8)">%</th>
+                <th onclick="sortTable(9)">Plyoff</th>
+                <th onclick="sortTable(10)">Div</th>
+                <th onclick="sortTable(11)">Conf</th>
+                <th onclick="sortTable(12)">Champ</th>
+                
+            </tr>
+        </thead>
+        <tbody id="teamsTableBody">
+        </tbody>`;
+        teamsContainer.appendChild(teamDiv);
+        console.log("loaded p2");
+        teamNames.forEach((name, index) => {
+            var teamsTableBody = document.getElementById("teamsTableBody");
+            var currentTeam = teams.find(team => team.name === name);
+            console.log(name);
+            var newRow = document.createElement("tr");
+            var teamData = document.createElement("td");
+            var leagueData = document.createElement("td");
+            var beganData = document.createElement("td");
+            var toData = document.createElement("td");
+            var yearsData = document.createElement("td");
+            var gamesData = document.createElement("td");
+            var winsData = document.createElement("td");
+            var lossesData = document.createElement("td");
+            var winlossData = document.createElement("td");
+            var playoffsData = document.createElement("td");
+            var divisionalsData = document.createElement("td");
+            var conferencesData = document.createElement("td");
+            var championshipsData = document.createElement("td");
+            newRow.appendChild(teamData);
+            newRow.appendChild(leagueData);
+            newRow.appendChild(beganData);
+            newRow.appendChild(toData);
+            newRow.appendChild(yearsData);
+            newRow.appendChild(gamesData);
+            newRow.appendChild(winsData);
+            newRow.appendChild(lossesData);
+            newRow.appendChild(winlossData);
+            newRow.appendChild(playoffsData);
+            newRow.appendChild(divisionalsData);
+            newRow.appendChild(conferencesData);
+            newRow.appendChild(championshipsData);
+            teamData.innerHTML = `${currentTeam.name}`;
+            leagueData.innerHTML = `${currentTeam.league}`;
+            beganData.innerHTML = `${currentTeam.beganYear}`;
+            toData.innerHTML = `${currentTeam.untilYear}`;
+            yearsData.innerHTML = `${currentTeam.untilYear-currentTeam.beganYear}`;
+            gamesData.innerHTML = `${currentTeam.wins+currentTeam.lost}`;
+            winsData.innerHTML = `${currentTeam.wins}`;
+            lossesData.innerHTML = `${currentTeam.lost}`;
+            winlossData.innerHTML = `${(currentTeam.wins/(currentTeam.wins+currentTeam.lost)).toFixed(2)}`;
+            playoffsData.innerHTML = `${currentTeam.playoffs}`;
+            divisionalsData.innerHTML = `${currentTeam.divisionals}`;
+            conferencesData.innerHTML = `${currentTeam.conferences}`;
+            championshipsData.innerHTML = `${currentTeam.championships}`;
+            teamsTableBody.appendChild(newRow);
+        });
+}
+
+        
+
+
+    </script>
+
 </body>
 </html>
