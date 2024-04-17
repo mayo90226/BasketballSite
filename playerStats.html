@@ -13,23 +13,35 @@
         .team-players {
             margin-top: 20px;
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
-<header>
-    <div class="col-9 scroll wrap">
-        <table class="nav">
-            <tr>
-                <th><a href="index.html">Home</a></th>
-                <th><a href="playerStats.html">Players</a></th>
-                <th><a href="teamstats.html">Teams</a></th>
-                <th><a href="Highlights.html">Highlights</a></th>
-                <th><a href="aboutus.html">About us</a></th>
-            </tr>
-        </table>
-    </div>
-</header>
-
 <body>
+    <header>
+        <div class="col-9 scroll wrap">
+            <table class="nav">
+                <tr>
+                    <th><a href="index.html">Home</a></th>
+                    <th><a href="playerStats.html">Players</a></th>
+                    <th><a href="teamstats.html">Teams</a></th>
+                    <th><a href="Highlights.html">Highlights</a></th>
+                    <th><a href="aboutus.html">About us</a></th>
+                </tr>
+            </table>
+        </div>
+    </header>
+
     <div class="wrap col-9">
         <div class="underwrap">
             <h1>Player Lookup</h1>
@@ -139,11 +151,13 @@
                 const team = JSON.parse(localStorage.getItem(teamId));
                 playersByTeamHTML += `<div class="team-players">`;
                 playersByTeamHTML += `<h2>${team.name}</h2>`; // Display the team name
+                playersByTeamHTML += `<table>`;
+                playersByTeamHTML += `<tr><th>ID</th><th>Name</th><th>Position</th><th>Overall</th></tr>`; // Table headers
                 playersByTeam[teamId].forEach(player => {
-                    // Generate HTML for each player
-                    playersByTeamHTML += `ID# ${player.id.substring(7)} - ${player.name} - Position: ${player.position} - Overall: ${player.overall}</p>`;
-                    // Include additional player stats as needed
+                    // Generate HTML for each player row
+                    playersByTeamHTML += `<tr><td>${player.id.substring(7)}</td><td>${player.name}</td><td>${player.position}</td><td>${player.overall}</td></tr>`;
                 });
+                playersByTeamHTML += `</table>`;
                 playersByTeamHTML += `</div>`;
             }
 
