@@ -4,7 +4,7 @@ function sortTable(n) {
   table = document.getElementById("teamsTable");
   switching = true;
   // Set the sorting direction to ascending:
-  dir = "asc";
+  dir = "desc";
   /* Make a loop that will continue until
   no switching has been done: */
   while (switching) {
@@ -143,7 +143,7 @@ function displayAllTeams() {
       gamesData.innerHTML = `${currentTeam.wins+currentTeam.lost}`;
       winsData.innerHTML = `${currentTeam.wins}`;
       lossesData.innerHTML = `${currentTeam.lost}`;
-      winlossData.innerHTML = `${(currentTeam.wins/(currentTeam.wins+currentTeam.lost)).toFixed(2)}`;
+      winlossData.innerHTML = `${(currentTeam.wins/(currentTeam.wins+currentTeam.lost)).toFixed(3)}`;
       playoffsData.innerHTML = `${currentTeam.playoffs}`;
       divisionalsData.innerHTML = `${currentTeam.divisionals}`;
       conferencesData.innerHTML = `${currentTeam.conferences}`;
@@ -157,9 +157,11 @@ function displaySelectedTeam() {
   var selectedTeamId = (teamSelect.value);
   console.log(selectedTeamId);
   if (selectedTeamId == "def") {
+    console.log("working");
       displayAllTeams();
       return;
   }
+  console.log("past");
   selectedTeamId = parseInt(teamSelect.value);
   if (!selectedTeamId || isNaN(selectedTeamId)) return;
   displayTeams('team_'+(selectedTeamId));

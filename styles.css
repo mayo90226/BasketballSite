@@ -2,6 +2,12 @@ header,head,body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    background-color: lightblue;
+    margin: 0;
+    height: 100%;
+}
+
 /* For desktop: */
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
@@ -111,12 +117,13 @@ a:hover{
 }
 
 .recentGames{
-    margin: auto;
+    margin: 0 auto;
     width: 50%;
     padding: 10px;
   }
 
   .NewsCard{
+    padding: 5px;
     display: inline-block;
     border: 2px solid black;
     border-radius: 3%;
@@ -135,7 +142,7 @@ a:hover{
 
   .NewsRow{
     align-content: center;
-
+    padding: 1vw;
   }
 
   .imgSquare{
@@ -184,14 +191,17 @@ a:hover{
 /* Navigation Bar styling */
 
 
-    div.scroll {
+    .scroll {
         overflow: scroll;
         white-space: nowrap;   
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
 
-    div.scroll::-webkit-scrollbar {
+    .scroll::-webkit-scrollbar {
         display: none;   
     }
+
 
     table.nav {
     margin-left: 0;
@@ -225,4 +235,12 @@ a:hover{
     table.nav a {
         color: black;
         text-decoration: none;
+    }
+
+    .wrap {
+        border-left: solid black 1px;
+        border-right: solid black 1px;
+        border-bottom: solid black 1px;
+        margin: 0 auto;
+        background-color: white;
     }

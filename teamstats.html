@@ -6,12 +6,29 @@
     <link rel="stylesheet" href="styles.css">
     <script src="teamstatsScripts.js"></script>
     <style>
+        html {height: 100%;}
+        body {
+            background-color: lightblue;
+            margin: 0;
+            height: 100%;
+        }
+    
         p,h1,h2,h3,h4,table {
             margin-left: 2%;
+            text-align: left;
         }
         p {
             margin-left: 3%;
             font-size: 1.3vw;
+        }
+
+        header {
+            margin-top: 0;
+        }
+
+        div.curve {
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
         }
 
         table.teams th {
@@ -30,12 +47,27 @@
         }
 
         table.teams {
-            font-size: 120%;
+            font-size: 1vw;
             border-collapse: separate;
             border-spacing: 0;
             border: 0;
+            padding-bottom: 1vw;
+        }
+
+        table.teams tr:last-child {
+            border-bottom-left-radius: 10px;
         }
         
+        @media only screen and (max-width: 768px) {
+            /* For mobile phones: */
+            [class*="col-"] {
+                width: 100%;
+            }
+
+            [class*="teams"] {
+                font-size: 15px;
+            }
+        }
 
         table.teams tr:hover td {
             background-color: rgb(236, 196, 85);
@@ -117,16 +149,28 @@
             opacity: 1;
         }
 
+        label {
+            margin-left: 2%;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            left: 0;
+            right: 0;
+        }
+
     </style>
 
 </head>
 <header>
-    <div class="scroll">
+    <div class="scroll col-9 wrap">
         <table class="nav">
             <tr>
                 <th><a href="index.html">Home</a></th>
                 <th><a href="playerStats.html">Players</a></th>
-                <th><a href="playerStats.html">Games</a></th>
                 <th><a href="teamstats.html">Teams</a></th>
                 <th><a href="NBA Standings.html">Standings</a></th>
                 <th><a href="Highlights.html">Highlights</a></th>
@@ -137,17 +181,18 @@
     </div>
 </header>
 <body>
+    <div class="wrap col-9 curve">
     <br>
     <h1>Statistics for all NBA Teams</h1>
     <br>
+    <h2 style="margin-bottom: 0;">Currently Active Teams</h2>
     <div>
         <label for="teamSelect">Select Team:</label>
         <select id="teamSelect" onchange="displaySelectedTeam();console.log(this.value);">
             <option value="def">Select a team</option>
         </select>
     </div>
-    <h2 style="margin-bottom: 0;">Currently Active Teams</h2>
-    <div class="scroll" id="teamsContainer">
+    <div id="teamsContainer">
     </div>
 
     <script src="playerGenerator.js"></script>
@@ -266,14 +311,6 @@
             displayAllTeams();
         };
 
-        // Function to display the selected team
-        function displaySelectedTeam() {
-            const teamSelect = document.getElementById('teamSelect');
-            const selectedTeamId = parseInt(teamSelect.value);
-            if (!selectedTeamId || isNaN(selectedTeamId)) return;
-            displayTeams('team_'+(selectedTeamId));
-        }
-
         function displayAllTeams() {
         const teamsContainer = document.getElementById('teamsContainer');
         teamsContainer.innerHTML = ''; // Clear existing content
@@ -282,7 +319,7 @@
         teamDiv.classList.add('team');
         teamDiv.innerHTML = `
             <h2>Teams</h2>
-            <div class="players">
+            <div class="players scroll">
                 <table class="teams" id="teamsTable" cellspacing="0" style="margin-top: 0.5%;">
         <colgroup>
             <col>
@@ -373,6 +410,6 @@
 
 
     </script>
-
+</div>
 </body>
 </html>
