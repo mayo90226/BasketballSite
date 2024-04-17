@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html style="font-family: Arial, Helvetica, sans-serif;">
 <head>
-    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Stats</title>
     <link rel="stylesheet" href="styles.css">
     <script src="teamstatsScripts.js"></script>
@@ -192,7 +192,7 @@
             <option value="def">Select a team</option>
         </select>
     </div>
-    <div id="teamsContainer">
+    <div class="col-12" id="teamsContainer">
     </div>
 
     <script src="playerGenerator.js"></script>
@@ -216,7 +216,7 @@
             teamDiv.innerHTML = `
                 <h2>${selectedTeam.name}</h2>
                 <div class="players">
-                    <table class="teams" id="teamsTable" cellspacing="0" style="margin-top: 0.5%;">
+                    <table class="teams col-9" id="teamsTable" cellspacing="0" style="margin-top: 0.5%;">
             <colgroup>
                 <col>
                 <col>
@@ -320,7 +320,7 @@
         teamDiv.innerHTML = `
             <h2>Teams</h2>
             <div class="players scroll">
-                <table class="teams" id="teamsTable" cellspacing="0" style="margin-top: 0.5%;">
+                <table class="teams col-9" id="teamsTable" cellspacing="0" style="margin-top: 0.5%;">
         <colgroup>
             <col>
             <col>
