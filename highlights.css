@@ -44,15 +44,7 @@ main {
     box-shadow: 0 0 10px red;
 }
 
-.highlight-card img {
-    width: 100%;
-    height: 200px;
-}
 
-.highlight-card2 img {
-    width: 100%;
-    height: 200px;
-}
 
 .highlight-card h2 {
     padding: 1px;
@@ -80,4 +72,72 @@ main {
     text-align: center;
     font-size: 16px;
     margin-top: 20px;
+}
+
+.highlight-card3 {
+    width: 350px;
+    margin: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px green;
+}
+
+.highlight-card3 h3 {
+    padding: 1px;
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
+    color: green; 
+}
+
+.highlight-card4 {
+    width: 350px;
+    margin: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgb(17, 221, 136);
+}
+
+.highlight-card4 h3 {
+    padding: 1px;
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
+    color: rgb(17, 221, 136);
+}
+
+.highlight-card5 {
+    width: 350px;
+    margin: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgb(66, 4, 209);
+}
+
+.highlight-card5 h3 {
+    padding: 1px;
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
+    color: rgb(66, 4, 209); 
+}
+
+.highlight-card6 {
+    width: 350px;
+    margin: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px orange;
+}
+
+.highlight-card6 h3 {
+    padding: 1px;
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
+    color: orange;
 }

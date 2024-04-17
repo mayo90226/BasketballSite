@@ -1,50 +1,127 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Highlights of the Season</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="highlights.css">
-
 </head>
 <body>
     <div class="col-9 scroll wrap">
-    <header>
-        <table class="nav">
-            <tr>
-                <th><a href="index.html">Home</a></th>
-                <th><a href="playerStats.html">Players</a></th>
-                <th><a href="teamstats.html">Teams</a></th>
-                <th><a href="NBA Standings.html">Standings</a></th>
-                <th><a href="Highlights.html">Highlights</a></th>
-                <th><a href="News.html">News</a></th>
-                <th><a href="aboutus.html">About us</a></th>
-            </tr>
-        </table><br>
-        <h1>Best Highlights of the NBA Season</h1></div>
-    </header>
-    <div class="col-9 wrap">
-    <main>
-            <div class="highlight-container">
-                <div class="highlight-card">
-                    <a href="https://www.youtube.com/watch?v=GRblNTXolvo&t=95s" target="_blank">
-                        <img src="data:image/jpeg;base64,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" alt="Basketball Highlight"
-                        width="100" hieght="132">
-                    </a>
-                        <h2>Luka Doncic's INSANE 73-PT CAREER-HIGH Performance!</h2>
-                        <p class="page-paragraph">This is where questions and answers will go about his game. Post game interviews and stuff like that.</p>
-                    </div>
+        <header>
+            <table class="nav">
+                <tr>
+                    <th><a href="index.html">Home</a></th>
+                    <th><a href="playerStats.html">Players</a></th>
+                    <th><a href="teamstats.html">Teams</a></th>
                     
+                    <th><a href="Highlights.html">Highlights</a></th>
+                    
+                    <th><a href="aboutus.html">About us</a></th>
+                </tr>
+            </table>
+            <br>
+            <h1>Best Highlights of the NBA Season</h1>
+        </header>
+    </div>
+    <div class="col-9 wrap">
+        <main>
+            <div class="highlight-container">
+                <!-- Highlight card 1 -->
+                <div class="highlight-card">
+                    <h2>Chad Katz Drops Historic 88-PT in CARRER HIGH</h2>
+                </div>
+                <!-- Highlight card 2 -->
+                <div class="highlight-card2">
+                    <h3>Loading...</h3>
+                </div>
+                <!-- Highlight card 3 - Green -->
+                <div class="highlight-card3">
+                    <h3>Loading...</h3>
+                </div>
+                <!-- Highlight card 4 - Yellow -->
+                <div class="highlight-card4">
+                    <h3>Loading...</h3>
+                </div>
+                <!-- Highlight card 5 - Pink -->
+                <div class="highlight-card5">
+                    <h3>Loading...</h3>
+                </div>
+                <!-- Highlight card 6 - Orange -->
+                <div class="highlight-card6">
+                    <h3>Loading...</h3>
+                </div>
+            </div>
+        </main>
+    </div>
 
-                    <div class="highlight-container">
-                        <div class="highlight-card2">
-                            <a href="https://www.youtube.com/watch?v=9SjvZPFiDH0" target="_blank">
-                                <img src="https://cdn.nba.com/manage/2024/01/embiid-4.jpg" alt="Basketball Highlight"
-                                width="100" hieght="132">
-                            </a>
-                                <h3>Joel Embiid's 70-PT CAREER-HIGH</h3>
-                                <p class="page-paragraph">This is where questions and answers will go about his game. Post game interviews and stuff like that.</p>
-                            </div>
-    </main>
-</div>
+    <script>
+        window.addEventListener('load', function() {
+            // Function to generate a random number between min and max
+            function getRandomNumber(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            // Retrieve player data from local storage for each player
+            function getPlayerData(playerId) {
+                const data = JSON.parse(localStorage.getItem(playerId));
+                return data;
+            }
+
+            // Function to get a player name
+            function getPlayerName(playerData) {
+                if (!playerData || !playerData.name) return 'No Player Data';
+                return playerData.name;
+            }
+
+            // Array of different highlight options
+            const highlightOptions = [
+                "Career High",
+                "Game-Winning Shot",
+                "Triple-Double Performance",
+                "Clutch Performance in Overtime",
+                "Poster Dunk on Defender",
+                "Record-Breaking Performance",
+                "Buzzer Beater",
+                "Game-Sealing Block",
+                "Ankle-Breaking Crossover",
+                "Alley-Oop Slam Dunk"
+            ];
+
+            // Generate unique random player IDs for each card
+            const playerIds = [];
+            while (playerIds.length < 6) {
+                const randomPlayerId = 'player_' + getRandomNumber(0, 335);
+                if (!playerIds.includes(randomPlayerId)) {
+                    playerIds.push(randomPlayerId);
+                }
+            }
+
+            // Generate random point numbers between 23 and 86 for each card
+            const randomPoints = [
+                getRandomNumber(10, 40),
+                getRandomNumber(10, 40),
+                getRandomNumber(23, 86),
+                getRandomNumber(30, 52),
+                getRandomNumber(23, 36),
+                getRandomNumber(3, 23)
+            ];
+
+            // Update the highlight cards with player names and random points
+            const highlightCards = document.querySelectorAll('.highlight-container > div');
+            highlightCards.forEach((card, index) => {
+                const playerId = playerIds[index];
+                const playerData = getPlayerData(playerId);
+                const playerName = getPlayerName(playerData);
+                const randomPoint = randomPoints[index];
+                const randomOption = highlightOptions[getRandomNumber(0, highlightOptions.length - 1)];
+                const h3Element = card.querySelector('h3');
+                if (h3Element) {
+                    h3Element.textContent = playerName + "'s " + randomPoint + "-PT " + randomOption + " Performance!";
+                }
+            });
+        });
+    </script>
 </body>
 </html>

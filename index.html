@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="styles.css">
     <title>Index</title>
 </head>
+
+<style>
+    .textbar{
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 5%;
+        font-size: large;
+        text-align: left;
+
+    }
+</style>
 <header>
     <div class="col-9 scroll wrap">
     <table class="nav">
@@ -13,9 +24,9 @@
             <th><a href="index.html">Home</a></th>
             <th><a href="playerStats.html">Players</a></th>
             <th><a href="teamstats.html">Teams</a></th>
-            <th><a href="NBA Standings.html">Standings</a></th>
+            
             <th><a href="Highlights.html">Highlights</a></th>
-            <th><a href="News.html">News</a></th>
+            
             <th><a href="aboutus.html">About us</a></th>
         </tr>
     </table></div>
@@ -23,22 +34,16 @@
 <body>
     <div class="col-9 wrap">
     
-    <h1 style="text-align: center;">BasketBall Stats Page</h1>
+    <h1 style="text-align: center;">GENERATE BASKETBALL STATS</h1>
     <div class="container">
         <label for="playerIdInput">Generate Data</label>
         <button onclick="generateTeams();">Generate</button>
     </div>
 
-    <h1 style="text-align: center;">Recent Photos</h1>
-    <div class="NbaPhotos">
-        <table>
-            <tr>
-                <td><img src="https://library.sportingnews.com/styles/twitter_card_120x120/s3/2023-01/nba-plain--053de5ec-06dc-4f0c-bc80-dc9bfaf41fcc.jpeg?itok=LEa3L7-k"></td>
-                <td><img src="https://img.buzzfeed.com/buzzfeed-static/complex/images/g2xgonr3wqzkt5amviih/giannis-antetokounmpo-dunk-bucks-76ers-2019.jpg?output-format=jpg&output-quality=auto"</td>
-                <td><img src="https://img.buzzfeed.com/buzzfeed-static/complex/images/g2xgonr3wqzkt5amviih/giannis-antetokounmpo-dunk-bucks-76ers-2019.jpg?output-format=jpg&output-quality=auto"</td>
-            </tr>
-        </table>
-
+    <div class="textbar">
+        <p>Pressing that magic button will simulate creating 360 players and all of their stats and data press generate and see if you can find a player that mimics your game!</p>
+    </div>
+   
 
     </div>
     <script src="playerGenerator.js"></script>
