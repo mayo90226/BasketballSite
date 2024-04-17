@@ -3,7 +3,7 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Function to generate a random player with a unique ID and team ID
+
 function generateRandomPlayer(playerId, teamId) {
     const positions = ['PG', 'SG', 'SF', 'PF', 'C'];
     const firstNames = ['Chad', 'Michael','Chris','James', 'John', 'Robert', 'David', 'William', 'Daniel', 'Joseph', 'Richard', 'Thomas', 'Charles',

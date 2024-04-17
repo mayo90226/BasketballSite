@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player Stats</title>
     <style>
-        
+        /* Add your CSS styles here */
+        .wrap {
+            margin-bottom: 20px;
+        }
+        .team-players {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <header>
@@ -16,104 +22,139 @@
                 <th><a href="index.html">Home</a></th>
                 <th><a href="playerStats.html">Players</a></th>
                 <th><a href="teamstats.html">Teams</a></th>
-                
                 <th><a href="Highlights.html">Highlights</a></th>
-                
                 <th><a href="aboutus.html">About us</a></th>
             </tr>
         </table>
     </div>
 </header>
-<style>
-    .underwrap{
-        padding: 2%;
-    }
-</style>
 
 <body>
     <div class="wrap col-9">
         <div class="underwrap">
-        <h1>Player Lookup</h1>
-        <div class="player-stats">
-            <label for="playerIdInput">Enter Player ID:</label>
-            <input type="text" id="playerIdInput">
-            <button onclick="lookupPlayer()">Lookup Player</button>
-            <div id="playerStats"></div>
+            <h1>Player Lookup</h1>
+            <div class="player-stats">
+                <label for="playerIdInput">Enter Player ID:</label>
+                <input type="text" id="playerIdInput">
+                <button onclick="lookupPlayer()">Lookup Player</button>
+                <div id="playerStats"></div>
+            </div>
         </div>
+    </div>
+
+    <div class="wrap col-9">
+        <div class="underwrap">
+            <h1>All Players by Team</h1>
+            <div id="allPlayersByTeam"></div>
         </div>
     </div>
 
     <script>
-    
+        function lookupPlayer() {
+            const playerIdInput = document.getElementById('playerIdInput').value.trim();
+            if (!playerIdInput) {
+                alert('Please enter a player ID.');
+                return;
+            }
 
-    function lookupPlayer() {
-    const playerIdInput = document.getElementById('playerIdInput').value.trim();
-    if (!playerIdInput) {
-        alert('Please enter a player ID.');
-        return;
-    }
+            const playerId = playerIdInput.startsWith('player_') ? playerIdInput : `player_${playerIdInput}`;
 
-    // Check if the input is already in the format "player_x"
-    const playerId = playerIdInput.startsWith('player_') ? playerIdInput : `player_${playerIdInput}`;
+            const playerData = JSON.parse(localStorage.getItem(playerId));
+            if (!playerData) {
+                alert('Player not found.');
+                return;
+            }
 
-    const playerData = JSON.parse(localStorage.getItem(playerId));
-    if (!playerData) {
-        alert('Player not found.');
-        return;
-    }
+            const playerStatsContainer = document.getElementById('playerStats');
 
-    const playerStatsContainer = document.getElementById('playerStats');
+            // Helper function to generate style for the border color
+            function getBorderStyle(value) {
+                const greenThreshold = 80;
+                const yellowThreshold = 70;
+                const lightGreenThreshold = 90;
+                
+                if (value >= lightGreenThreshold) {
+                    return '2px solid lightgreen'; 
+                } 
+                else if (value >= greenThreshold) {
+                    return '2px solid green'; 
+                }else if (value >= yellowThreshold) {
+                    return '2px solid yellow'; 
+                } else {
+                    return '2px solid red'; 
+                }
+            }
 
-    // Helper function to generate style for the border color
-    function getBorderStyle(value) {
-        const greenThreshold = 80;
-        const yellowThreshold = 70;
-        const lightGreenThreshold = 90;
-        
-        if (value >= lightGreenThreshold) {
-            return '2px solid lightgreen'; 
-        } 
-        else if (value >= greenThreshold) {
-            return '2px solid green'; 
-        }else if (value >= yellowThreshold) {
-            return '2px solid yellow'; 
-        } else {
-            return '2px solid red'; 
+            // Helper function to create the HTML for each stat with colored border
+            function createStatHTML(skillName, skillValue) {
+                const style = `border: ${getBorderStyle(skillValue)}; padding: 3px; border-radius: 5px;`;
+                return `<span style="${style}">${skillValue}</span> ${skillName}`;
+            }
+
+            playerStatsContainer.innerHTML = `
+                <h2>${playerData.name}:  ${playerData.overall} </h2>
+                <p>Position: ${playerData.position}</p>
+                <p>Age: ${playerData.Age}</p>
+                <p>Height: ${playerData.height}</p>
+                <p>Birth Town: ${playerData.Birthplace}</p>
+                <p>School: ${playerData.School}</p>
+
+                <h2>Shooting Skill: ${createStatHTML('Shooting Skill:', playerData.shooting)}</h2>
+                <p>Finishing Skill: ${createStatHTML('', playerData.Finishing)}</p>
+                <p>Mid Range Skill: ${createStatHTML('', playerData.MidRange)}</p>
+                <p>ThreePoint Skill: ${createStatHTML('', playerData.ThreePoint)}</p>
+                <h2>Playmaking Skill: ${createStatHTML('', playerData.playmaking)}</h2>
+                <p>Passing Skill: ${createStatHTML('', playerData.passing)}</p>
+                <p>Vision Skill: ${createStatHTML('', playerData.vision)}</p>
+                <p>Ballhandling Skill: ${createStatHTML('', playerData.ballhandling)}</p>
+                <h2>Defense Skill: ${createStatHTML('', playerData.defense)}</h2>
+                <p>Steal Skill: ${createStatHTML('', playerData.steal)}</p>
+                <p>Block Skill: ${createStatHTML('', playerData.block)}</p>
+                <p>Speed Skill: ${createStatHTML('', playerData.speed)}</p>
+                <p>Rebounding Skill: ${createStatHTML('', playerData.Rebounding)}</p>
+            `;
         }
-    }
 
-    // Helper function to create the HTML for each stat with colored border
-    function createStatHTML(skillName, skillValue) {
-        const style = `border: ${getBorderStyle(skillValue)}; padding: 3px; border-radius: 5px;`;
-        return `<span style="${style}">${skillValue}</span> ${skillName}`;
-    }
+        function generatePlayersByTeam() {
+            const playersByTeam = {};
 
-    playerStatsContainer.innerHTML = `
-        <h2>${playerData.name}:  ${playerData.overall} </h2>
-        <p>Position: ${playerData.position}</p>
-        <p>Age: ${playerData.Age}</p>
-        <p>Height: ${playerData.height}</p>
-        <p>Birth Town: ${playerData.Birthplace}</p>
-        <p>School: ${playerData.School}</p>
+            // Iterate through localStorage to collect players by team
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith('player_')) {
+                    const player = JSON.parse(localStorage.getItem(key));
+                    const teamId = player.teamId;
+                    // Check if the teamId already exists in the playersByTeam object
+                    if (!playersByTeam[teamId]) {
+                        playersByTeam[teamId] = [];
+                    }
+                    // Push the player to the corresponding team's array
+                    playersByTeam[teamId].push(player);
+                }
+            }
 
-        <h2>Shooting Skill: ${createStatHTML('Shooting Skill:', playerData.shooting)}</h2>
-        <p>Finishing Skill: ${createStatHTML('', playerData.Finishing)}</p>
-        <p>Mid Range Skill: ${createStatHTML('', playerData.MidRange)}</p>
-        <p>ThreePoint Skill: ${createStatHTML('', playerData.ThreePoint)}</p>
-        <h2>Playmaking Skill: ${createStatHTML('', playerData.playmaking)}</h2>
-        <p>Passing Skill: ${createStatHTML('', playerData.passing)}</p>
-        <p>Vision Skill: ${createStatHTML('', playerData.vision)}</p>
-        <p>Ballhandling Skill: ${createStatHTML('', playerData.ballhandling)}</p>
-        <h2>Defense Skill: ${createStatHTML('', playerData.defense)}</h2>
-        <p>Steal Skill: ${createStatHTML('', playerData.steal)}</p>
-        <p>Block Skill: ${createStatHTML('', playerData.block)}</p>
-        <p>Speed Skill: ${createStatHTML('', playerData.speed)}</p>
-        <p>Rebounding Skill: ${createStatHTML('', playerData.Rebounding)}</p>
-    `;
-}
+            let playersByTeamHTML = '';
+            // Iterate over teams and their players to generate HTML
+            for (const teamId in playersByTeam) {
+                const team = JSON.parse(localStorage.getItem(teamId));
+                playersByTeamHTML += `<div class="team-players">`;
+                playersByTeamHTML += `<h2>${team.name}</h2>`; // Display the team name
+                playersByTeam[teamId].forEach(player => {
+                    // Generate HTML for each player
+                    playersByTeamHTML += `ID# ${player.id.substring(7)} - ${player.name} - Position: ${player.position} - Overall: ${player.overall}</p>`;
+                    // Include additional player stats as needed
+                });
+                playersByTeamHTML += `</div>`;
+            }
 
+            // Display the generated HTML on the webpage
+            const allPlayersByTeamContainer = document.getElementById('allPlayersByTeam');
+            allPlayersByTeamContainer.innerHTML = playersByTeamHTML;
+        }
 
-        
+        window.onload = function() {
+            generatePlayersByTeam();
+        };
     </script>
 </body>
 </html>
